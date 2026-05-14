@@ -74,6 +74,8 @@
 
 - What happens when [boundary condition]?
 - How does system handle [error scenario]?
+- How are duplicate, delayed, or failed resident notifications handled?
+- What happens when a resident revokes communication consent?
 
 ## Requirements *(mandatory)*
 
@@ -89,6 +91,10 @@
 - **FR-003**: Users MUST be able to [key interaction, e.g., "reset their password"]
 - **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
 - **FR-005**: System MUST [behavior, e.g., "log all security events"]
+- **FR-006**: System MUST enforce role-based access rules for resident and management actions.
+- **FR-007**: System MUST provide explicit communication preference and consent controls.
+- **FR-008**: System MUST expose delivery state for critical resident communications.
+- **FR-009**: System MUST meet accessibility requirements for keyboard use and readable content.
 
 *Example of marking unclear requirements:*
 
@@ -113,6 +119,16 @@
 - **SC-002**: [Measurable metric, e.g., "System handles 1000 concurrent users without degradation"]
 - **SC-003**: [User satisfaction metric, e.g., "90% of users successfully complete primary task on first attempt"]
 - **SC-004**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
+- **SC-005**: [Reliability metric, e.g., "95% of critical notices reach residents within 60 seconds"]
+- **SC-006**: [Accessibility metric, e.g., "100% of P1 workflows pass defined accessibility checks"]
+
+## Constitution Alignment Checklist *(mandatory)*
+
+- Resident value for each user story is explicit and testable.
+- Personal data usage is minimized and purpose-defined.
+- Consent and communication preference handling is specified.
+- Notification or message failure handling is defined.
+- Accessibility expectations are stated for desktop and mobile use.
 
 ## Assumptions
 

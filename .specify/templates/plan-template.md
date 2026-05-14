@@ -31,7 +31,16 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- **Resident Value Gate**: Link each planned capability to a resident-facing
+  workflow and justify exclusions.
+- **Privacy and Consent Gate**: Document personal data touched, purpose, access
+  roles, and consent/preference handling.
+- **Reliability Gate**: Define failure modes for notifications/messages and the
+  recovery path (retry, fallback, or operator alert).
+- **Accessibility Gate**: Identify accessibility checks for core workflows across
+  desktop and mobile viewport use.
+- **Observability and Simplicity Gate**: Define logs/metrics for critical flows
+  and justify any added architectural complexity.
 
 ## Project Structure
 

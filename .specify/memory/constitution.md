@@ -1,50 +1,95 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+- Version change: N/A (template) -> 1.0.0
+- Modified principles:
+	- Template Principle 1 -> I. Resident-Centered Product Scope
+	- Template Principle 2 -> II. Privacy and Consent by Default
+	- Template Principle 3 -> III. Reliable Communication Delivery
+	- Template Principle 4 -> IV. Accessibility and Inclusive UX
+	- Template Principle 5 -> V. Operational Transparency and Simplicity
+- Added sections:
+	- Platform Constraints and Security Baselines
+	- Delivery Workflow and Quality Gates
+- Removed sections:
+	- None
+- Templates requiring updates:
+	- ✅ updated: .specify/templates/plan-template.md
+	- ✅ updated: .specify/templates/spec-template.md
+	- ✅ updated: .specify/templates/tasks-template.md
+	- ⚠ pending: .specify/templates/commands/*.md (directory not present in repository)
+- Follow-up TODOs:
+	- None
+-->
+
+# PPH Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Resident-Centered Product Scope
+All features MUST directly support apartment resident activities or communication.
+Each change MUST identify the resident workflow it improves (for example: notices,
+maintenance requests, event coordination, or unit-level announcements). Features
+that do not provide clear resident value MUST NOT be merged.
+Rationale: scope discipline keeps delivery focused and prevents admin-only drift.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Privacy and Consent by Default
+The platform MUST collect only minimum required personal data and MUST define a
+purpose for every stored field. Resident contact details, messages, and activity
+history MUST be protected in transit and at rest. Notification preferences and
+communication consent MUST be explicit, reversible, and auditable.
+Rationale: apartment communication includes sensitive personal context and trust.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Reliable Communication Delivery
+Resident-facing communication flows MUST be dependable and traceable. The system
+MUST prevent silent message loss, MUST provide delivery state visibility for
+critical notices, and MUST include retry or recovery behavior for transient
+failures. Time-sensitive announcements MUST include publish and expiry controls.
+Rationale: communication reliability is the core service promise of this product.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Accessibility and Inclusive UX
+All resident workflows MUST satisfy accessibility baselines (keyboard navigation,
+sufficient color contrast, semantic structure, and readable content hierarchy).
+Core tasks MUST be usable on mobile and desktop viewports without feature loss.
+User-facing language MUST be clear and non-technical.
+Rationale: resident populations are diverse in ability, device, and familiarity.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Operational Transparency and Simplicity
+Changes MUST include actionable observability for critical paths (auth, posting,
+notifications, resident messaging) and MUST avoid unnecessary architectural
+complexity. New dependencies or subsystems MUST include a written justification
+and a simpler alternative considered.
+Rationale: maintainability and clear operations are required for long-term trust.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Platform Constraints and Security Baselines
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- The application architecture MUST remain web-first with responsive support for
+	mobile and desktop browsers.
+- Authentication and authorization MUST enforce role boundaries for residents,
+	property managers, and administrators.
+- Data retention and deletion behavior MUST be documented for resident-generated
+	content and profile fields.
+- Breaking changes to APIs or data contracts MUST include a migration path and a
+	rollback strategy before release approval.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Delivery Workflow and Quality Gates
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- Every feature spec MUST include independent user scenarios, privacy impact,
+	accessibility checks, and measurable success criteria.
+- Implementation plans MUST pass an explicit constitution check before design and
+	before implementation.
+- Tasks MUST map to user stories and include verification tasks for reliability,
+	accessibility, and observability where relevant.
+- Pull requests MUST document test evidence for changed behavior and MUST list
+	any constitution exceptions with approval notes.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes local workflow preferences for this repository.
+Amendments require: (1) a documented proposal, (2) impact analysis across spec,
+plan, and task templates, and (3) maintainer approval. Versioning policy:
+MAJOR for incompatible principle or governance changes, MINOR for new principle
+or materially expanded mandatory guidance, PATCH for clarifications that do not
+change required behavior. Compliance review MUST occur in every pull request and
+at least once per release cycle for template alignment.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-05-14 | **Last Amended**: 2026-05-14

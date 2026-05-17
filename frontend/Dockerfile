@@ -7,6 +7,12 @@ COPY package.json package-lock.json ./
 RUN npm ci --ignore-scripts
 
 COPY . .
+
+ARG API_URL
+ARG SENTRY_DSN
+RUN sed -i "s|__API_URL__|${API_URL}|g" src/environments/environment.production.ts && \
+    sed -i "s|__SENTRY_DSN__|${SENTRY_DSN}|g" src/environments/environment.production.ts
+
 RUN npm run build -- --configuration production
 
 # ── Stage 2: Runtime ───────────────────────────────────────────────────────────

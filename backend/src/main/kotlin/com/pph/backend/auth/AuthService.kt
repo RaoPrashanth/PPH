@@ -97,7 +97,8 @@ class AuthService(
         }
         // dev fallback: log OTP (masked for security in prod via log level control)
         org.slf4j.LoggerFactory.getLogger(AuthService::class.java)
-            .info("OTP for $mobile: [REDACTED in prod] ${if (System.getenv("SPRING_PROFILES_ACTIVE") == "dev") otp else "****"}")
+            .info("OTP for $mobile: $otp")
+            //.info("OTP for $mobile: [REDACTED in prod] ${if (System.getenv("SPRING_PROFILES_ACTIVE") == "dev") otp else "****"}")
     }
 }
 
